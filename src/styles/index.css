@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #646cff;
+  --color-secondary: #61dafb;
+  --color-background: #f8f8f8;
+  --color-tertiary: #888;
+  --breakpoint-xs: 320px;
+  --color-background: hsl(from var(--color-background) h s calc(l + 10));
+}
+
+.modal {
+  background-color: rgb(from var(--color-background) r g b / 0.5);
+}
