@@ -43,6 +43,21 @@ Webp
 spliting resources
 lazy-loading
 
+## Import lazy
+
+```tsx
+// Without default
+const Homepage = React.lazy(() =>
+  import("../pages/homagepage/homepage").then((module) => ({
+    default: module.Homepage,
+  }))
+);
+
+// With default
+
+const Homepage = React.lazy(() => import("../pages/homagepage/homepage"));
+```
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:

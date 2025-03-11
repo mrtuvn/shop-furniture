@@ -4,7 +4,7 @@ import React from "react";
 
 const DefaultLayout = ({ children }: React.PropsWithChildren) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-svh">
       <Header />
       <main
         className="relative flex-grow"
