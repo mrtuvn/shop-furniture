@@ -13,6 +13,27 @@
   --color-background: hsl(from var(--color-background) h s calc(l + 10));
 }
 
+@layer base {
+  body,
+  input,
+  textarea,
+  select,
+  button {
+    font-synthesis: none;
+    -moz-font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    text-align: left;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+  }
+}
+
 body {
   font-family: var(--font-family);
   font-size: var(--font-size);

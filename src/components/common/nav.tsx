@@ -1,31 +1,15 @@
-export function Nav() {
+import { NAVIGATION_DEMO_2 } from "@/data/navigation";
+import NavItem from "./nav-item";
+
+function Nav() {
   return (
-    <nav className="container mx-auto flex justify-between items-center">
-      <a href="/" className="text-2xl font-bold">
-        Logo
-      </a>
-      <ul className="flex space-x-6">
-        <li>
-          <a href="/category" className="hover:underline">
-            Categories
-          </a>
-        </li>
-        <li>
-          <a href="/products" className="hover:underline">
-            Products
-          </a>
-        </li>
-        <li>
-          <a href="/sale" className="hover:underline">
-            Sale
-          </a>
-        </li>
+    <nav className="hidden md:flex items-center space-x-6 md:w-[1/2] md:min-w-[30%]">
+      <ul className="nc-Navigation flex items-center gap-5">
+        {NAVIGATION_DEMO_2.map((menuItem) => (
+          <NavItem key={menuItem.id} menuItem={menuItem} />
+        ))}
       </ul>
-      <input
-        type="search"
-        placeholder="Search..."
-        className="border p-2 rounded"
-      />
     </nav>
   );
 }
+export default Nav;

@@ -19,5 +19,14 @@ export default defineConfig({
       "@types": path.resolve(__dirname, "./src/types"),
     },
   },
-  plugins: [preloadPlugin(), tailwindcss(), react()],
+  plugins: [preloadPlugin(), tailwindcss(), react(),
+    svgr({
+      svgrOptions: {
+        icon: true,
+        // This will transform your SVG to a React component
+        exportType: "named",
+        namedExport: "ReactComponent",
+      },
+    }),
+  ],
 });

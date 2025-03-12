@@ -7,7 +7,7 @@ import HomeLayout1 from "@/layouts/home1/layout";
 // import { Template2 } from '../layouts/template2';
 
 // routes
-import AuthRoute from "@/routes/auth-route";
+//import AuthRoute from "@/routes/auth-route";
 import GuestRoute from "@/routes/guest-route";
 import Spinner from "@/components/spinner";
 import RoleRoute from "@/routes/role-route";
