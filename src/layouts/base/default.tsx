@@ -1,4 +1,4 @@
-import MobileNav from "@/components/common/mobile-nav";
+import MobileNav from "@/components/navigation/mobile-nav";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import React from "react";

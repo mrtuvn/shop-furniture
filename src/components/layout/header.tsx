@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../common/nav";
+import Nav from "../navigation/nav";
 import { Search, ShoppingBag } from "lucide-react";
 import LanguageSwitcher from "@/components/common/language-switcher";
 import Logo from "../common/Logo";

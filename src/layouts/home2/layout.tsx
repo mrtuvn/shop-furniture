@@ -14,6 +14,7 @@ export const Home2Layout: React.FC = ({
           WebkitOverflowScrolling: "touch",
         }}
       >
+        <div>SECOND HOMEPAGE</div>
         {children}
       </main>
       <Footer />

@@ -2,6 +2,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html,
+body {
+  @apply antialiased;
+}
+
 @theme {
   --font-family: "Roboto", sans-serif;
   --font-size: 16px;
@@ -13,6 +18,18 @@
   --breakpoint-xs: 375px;
   --breakpoint-2xl: 1536px;
   --color-background: hsl(from var(--color-background) h s calc(l + 10));
+
+  --z-index-menu: 9989;
+  --z-index-dropdown: 9990;
+  --z-index-mega-menu: 9991;
+  --z-index-modal: 9992;
+  --z-index-overlay: 9993;
+  --z-index-tooltip: 9994;
+  --z-index-toast: 9995;
+  --z-index-loading: 9996;
+  --z-index-loading-overlay: 9997;
+  --z-index-loading-spinner: 9998;
+  --z-index-loading-text: 9999;
 }
 
 @layer base {
