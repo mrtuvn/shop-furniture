@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { products } from "@/data/products";
 import ProductGrid from "@/components/product/product-grid";
 import HeroSlider from "@/components/slider/HeroSlider";
-
+import TechStacksComponent from "@/components/tech-stack/tech-stacks-comp";
 const Homepage: React.FC = () => {
   return (
     <>
@@ -12,6 +12,9 @@ const Homepage: React.FC = () => {
       </div> */}
       <div>
         <HeroSlider />
+      </div>
+      <div>
+        <TechStacksComponent />
       </div>
       <div className="container mx-auto flex flex-col">
         <div className="bg-white">
