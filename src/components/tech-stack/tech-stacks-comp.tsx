@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 
 import TechList from "./tech-list";
-import { SearchIcon } from "lucide-react";
+import { SearchIcon, TagIcon } from "lucide-react";
 import axios from "axios";
 import useDebounce from "../../hooks/use-debounce";
 import Spinner from "../spinner";
+import TagList from "./tag-list";
 
 export interface Technology {
   title: string;
@@ -21,6 +22,7 @@ const TechStacksComponent = () => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const ref = useRef<HTMLInputElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [activeTag, setActiveTag] = useState<string>("");
 
   // trigger event after 1 second user not typing
   const debouncedSearchQuery = useDebounce(searchQuery, 1300);
@@ -35,10 +37,10 @@ const TechStacksComponent = () => {
         )}`
       );
       setTechnologies(response.data);
-      setSearchQuery("");
+      //setSearchQuery("");
     } catch (error) {
       console.error("Error fetching technologies:", error);
-      //setTechnologies([]); // Clear results on error
+      setTechnologies([]); // Clear results on error
     } finally {
       setIsLoading(false); // Hide loading state
     }
@@ -48,36 +50,53 @@ const TechStacksComponent = () => {
     fetchTechnologies();
   }, [debouncedSearchQuery]);
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setSearchQuery(value);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
+  const handleTagClick = (tag: string) => {
+    setActiveTag(tag);
+  };
+
+  const displayedTechnologies = activeTag
+    ? technologies.filter((tech) => tech.category === activeTag)
+    : technologies;
+
   return (
-    <div className="technologies-components-here relative my-5">
-      <h2 className="text-center text-2xl font-bold text-black">
-        Technologies we used
-      </h2>
-      <div className="container mx-auto flex items-center justify-center flex-col">
-        <div className="flex items-center justify-center border-2 border-gray-300 rounded-md p-2 mb-2">
+    <div className="isolate technologies-components-here flex flex-col relative my-5 md:max-w-[690px] mx-auto shadow-[0px_50px_60px_-30px_hsla(0, 0%, 0%, 0.25)]">
+      <div className="bg-[#fff] w-full flex items-center justify-center flex-col space-y-4 rounded-t-[20px] p-[24px]">
+        <div className="w-full flex items-center justify-center border-2 border-[#f2f4f8] text-black rounded-[12px] p-[24px] focus:outline-[#6833ff]">
           <SearchIcon className="w-4 h-4 mr-2" />
 
           <input
             ref={ref}
-            name="searchbox"
+            className="w-full"
+            name="searchbox "
             placeholder="Search technology stack"
             onChange={(e) => handleInputChange(e)}
           />
         </div>
 
+        <div className="flex items-center justify-center tags-filter-by-category">
+          <TagList activeTag={activeTag} handleTagClick={handleTagClick} />
+        </div>
+
         {isLoading && <Spinner />}
-        {!isLoading && technologies.length === 0 && (
-          <p className="text-center text-gray-500">
-            We don't have technologies that you looking for
-          </p>
+        {(!isLoading && displayedTechnologies.length === 0) ||
+          (!displayedTechnologies && (
+            <p className="text-center py-3 text-gray-500">
+              We don't have technologies that you looking for
+            </p>
+          ))}
+        {!isLoading && displayedTechnologies.length > 0 && (
+          <TechList items={displayedTechnologies} />
         )}
-        {!isLoading && technologies.length > 0 && (
-          <TechList items={technologies} />
+      </div>
+      <div className="bg-[#fff] flex status-results border-t border-[#f2f4f8] rounded-b-[24px] rounded-b-[20px] py-[15px] px-[24px]">
+        {!isLoading && displayedTechnologies.length > 0 && (
+          <div className="text-left text-[hsla(220, 9%, 63%, 1)] text-gray-500">
+            Results: {displayedTechnologies.length}
+          </div>
         )}
       </div>
     </div>

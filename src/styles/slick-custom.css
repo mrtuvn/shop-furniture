@@ -3,9 +3,23 @@
   bottom: 0;
   width: auto;
   right: 10px;
-  top: 50%;
+  top: 0%;
+  transform: translateY(50%);
+  margin-top: -2%;
+}
 
-  transform: translateY(-50%);
+@media all and (max-width: 767px) {
+  .w-slider-cmp .slick-dots {
+    top: 50%;
+    max-width: fit-content;
+    max-width: auto;
+    transform: translateY(-50%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: none;
+  }
 }
 
 @media all and(min-width: 990px) {

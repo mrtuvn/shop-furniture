@@ -17,6 +17,7 @@ body {
   --color-tertiary: #888;
   --breakpoint-xs: 375px;
   --breakpoint-2xl: 1536px;
+  --color-main-background: hsla(210, 38%, 95%, 1);
   --color-background: hsl(from var(--color-background) h s calc(l + 10));
 
   --z-index-menu: 9989;
@@ -68,6 +69,7 @@ body {
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   color: var(--color-tertiary);
+  background-color: var(--color-main-background);
 }
 
 .modal {
