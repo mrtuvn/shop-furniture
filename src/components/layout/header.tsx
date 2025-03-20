@@ -1,8 +1,7 @@
-import React from "react";
-import Nav from "../navigation/nav";
-import { Search, ShoppingBag } from "lucide-react";
 import LanguageSwitcher from "@/components/common/language-switcher";
+import { Search, ShoppingBag } from "lucide-react";
 import Logo from "../common/Logo";
+import Nav from "../navigation/nav";
 
 import AccountLinks from "../common/account-links";
 
@@ -15,7 +14,7 @@ const Header = () => {
             <LanguageSwitcher />
           </div>
         </div>
-        <div className="bg-black bottom-header py-2">
+        <div className="bg-black bottom-header py-2 relative">
           <div className="container top-0 mx-auto flex justify-between py-4 items-center">
             <Logo />
             <Nav />

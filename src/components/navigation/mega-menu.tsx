@@ -1,10 +1,10 @@
-import React from "react";
 import { NavItemType } from "@/types/navigation";
+import React from "react";
 
 const MegaMenu: React.FC<{ menuItem: NavItemType }> = ({ menuItem }) => {
   return (
-    <div className="mega-menu-container w-full min-w-[100vư] py-[40px] absolute left-0 right-0 bg-white shadow-lg isolation top-full z-[var(--z-index-mega-menu)] hidden group-hover:block">
-      <div className="container mx-auto py-6 px-4">
+    <div className="hidden group-hover:block top-[100%] isolation mega-menu-subcontent translate-y-[-24px] absolute right-0 left-0 z-[var(--z-index-mega-menu)] md:w-full min-w-[200px] bg-white py-[40px] shadow-lg group-hover:block">
+      <div className="container mx-auto px-4 py-6">
         <div className="grid grid-cols-4 gap-4">
           {menuItem.children?.map((child) => (
             <div key={child.id} className="mega-menu-item">

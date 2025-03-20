@@ -1,11 +1,14 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
 import path from "path";
-import preloadPlugin from "vite-preload/plugin";
+import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
+import preloadPlugin from "vite-preload/plugin";
 // https://vite.dev/config/
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ["lucide-react"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -19,7 +22,10 @@ export default defineConfig({
       "@types": path.resolve(__dirname, "./src/types"),
     },
   },
-  plugins: [preloadPlugin(), tailwindcss(), react(),
+  plugins: [
+    preloadPlugin(),
+    tailwindcss(),
+    react(),
     svgr({
       svgrOptions: {
         icon: true,
