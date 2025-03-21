@@ -1,21 +1,13 @@
-import { useTranslation } from "react-i18next";
-
-import { products } from "@/data/products";
 import ProductGrid from "@/components/product/product-grid";
 import HeroSlider from "@/components/slider/HeroSlider";
-import TechStacksComponent from "@/components/tech-stack/tech-stacks-comp";
+import { products } from "@/data/products";
 const Homepage: React.FC = () => {
   return (
     <>
-      {/* <div>
-        <img src="/assets/img/high-resolution.webp" alt="Wild" width="100%" />
-      </div> */}
       <div>
         <HeroSlider />
       </div>
-      <div>
-        <TechStacksComponent />
-      </div>
+
       <div className="container mx-auto flex flex-col">
         <div className="bg-white">
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">

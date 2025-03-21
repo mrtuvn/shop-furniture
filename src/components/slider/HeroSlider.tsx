@@ -87,19 +87,21 @@ const HeroSlider = () => {
           <div className="slider-item relative" key={item.id}>
             <img src={item.image} alt={item.title} />
             <div className="slider-item-content text-left absolute top-0 left-0 w-[50%] h-full md:gap-10">
-              <div className="flex flex-col gap-5 slider-item-content-inner text-left transform-none text-white  w-[80%]">
-                <h3 className="slider-title text-3xl text-white animate-slowSlideShowText duration-2000 text-4xl font-bold">
-                  {item.title}
-                </h3>
-                <p className="slider-description text-2xl animate-slowSlideShowText duration-1500 text-white text-lg">
-                  {item.description}
-                </p>
-                <a
-                  className="py-2 w-fit inline-block px-4 bg-white text-black animate-slowSlideShowText duration-1000  rounded-xs"
-                  href={item.link}
-                >
-                  GO HERE
-                </a>
+              <div className="flex flex-col gap-5 slider-item-content-inner items-center justify-center h-full  transform-none text-white  w-[80%]">
+                <div className="text-left flex flex-col gap-6">
+                  <h3 className="slider-title text-3xl text-white animate-slowSlideShowText duration-2000 text-4xl font-bold">
+                    {item.title}
+                  </h3>
+                  <p className="slider-description text-2xl animate-slowSlideShowText duration-1500 text-white text-lg">
+                    {item.description}
+                  </p>
+                  <a
+                    className="py-2 w-fit inline-block px-4 bg-white text-black animate-slowSlideShowText duration-1000  rounded-xs"
+                    href={item.link}
+                  >
+                    GO HERE
+                  </a>
+                </div>
               </div>
             </div>
           </div>
