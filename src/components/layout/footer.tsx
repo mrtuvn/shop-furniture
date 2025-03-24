@@ -2,8 +2,11 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-black" role="contentinfo">
-      <div className="footer__top container mx-auto py-4">
+    <footer
+      className="footer bg-black xs:mb-[var(--footer-mobile-navigate-height)] md:mb-0"
+      role="contentinfo"
+    >
+      <div className="footer__top container mx-auto py-2">
         <div className="grid md:grid-cols-5 gr">
           <div className="grid__item">
             AGOTA
