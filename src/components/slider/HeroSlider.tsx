@@ -83,7 +83,7 @@ const HeroSlider = () => {
   return (
     <div className="w-slider-cmp slider-container">
       <Slider {...settings} className="isolation slider-container relative">
-        {data.map((item: I) => (
+        {data.map((item: any) => (
           <div className="slider-item relative" key={item.id}>
             <img src={item.image} alt={item.title} />
             <div className="slider-item-content text-left absolute top-0 left-0 w-[50%] h-full md:gap-10">

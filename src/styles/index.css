@@ -1,3 +1,5 @@
+@layer reset, base, framework, tailwind, layout, components, utilities;
+
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -19,7 +21,6 @@ body {
   --color-background: #f8f8f8;
   --color-tertiary: #888;
   --breakpoint-xs: 375px;
-  --breakpoint-3xl: 120rem;
   --color-main-background: hsla(210, 38%, 95%, 1);
   --color-background: hsl(from var(--color-background) h s calc(l + 10));
   --menu-item-hover-bg: #0969da;

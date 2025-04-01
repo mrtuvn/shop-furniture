@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
-import { cn } from "@/utils/cn";
 import { Button } from "@/components/common/button";
+import { cn } from "@/utils/cn";
 
 interface MobileMenuProps {
   items: {
@@ -15,6 +15,13 @@ interface MobileMenuProps {
   }[];
 }
 
+interface ItemProp {
+  title: string;
+  href?: string;
+  type?: string;
+  items?: any[];
+}
+
 export function MobileMenu({ items }: MobileMenuProps) {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
@@ -22,7 +29,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
     setExpandedItems((prev) =>
       prev.includes(title)
         ? prev.filter((item) => item !== title)
-        : [...prev, title]
+        : [...prev, title],
     );
   };
 
@@ -31,7 +38,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
       <div className="border-t">
         <div className="container mx-auto max-h-[calc(100vh-4rem)] overflow-y-auto px-4 py-4">
           <nav className="flex flex-col space-y-1">
-            {items.map((item) => (
+            {items.map((item: ItemProp) => (
               <div
                 key={item.title}
                 className="border-b border-border pb-1 pt-1"
@@ -46,7 +53,9 @@ export function MobileMenu({ items }: MobileMenuProps) {
                       <ChevronDown
                         className={cn(
                           "h-4 w-4 transition-transform",
-                          expandedItems.includes(item.title) ? "rotate-180" : ""
+                          expandedItems.includes(item.title)
+                            ? "rotate-180"
+                            : "",
                         )}
                       />
                     </button>
@@ -55,7 +64,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
                         {item.type === "mega" ? (
                           // Render mega menu sections
                           <>
-                            {item.items.map((section) => (
+                            {item?.items?.map((section) => (
                               <div key={section.title} className="mb-2">
                                 <div className="px-3 py-1 text-xs font-semibold text-muted-foreground">
                                   {section.title}
@@ -78,7 +87,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
                         ) : (
                           // Render dropdown items
                           <>
-                            {item.items.map((subItem) => (
+                            {item?.items?.map((subItem) => (
                               <a
                                 key={subItem.title}
                                 href={subItem.href}

@@ -1,7 +1,6 @@
-import React from "react";
-import { User, UserPlus2, LogInIcon, LogOut } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
+import { LogInIcon, LogOut, User, UserPlus2 } from "lucide-react";
+import { Link } from "react-router-dom";
 const AccountLinks = () => {
   return (
     <div>

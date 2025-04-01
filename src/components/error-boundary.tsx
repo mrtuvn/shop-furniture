@@ -35,7 +35,7 @@ function ErrorBoundaryComponent({ children }: React.PropsWithChildren) {
     <ErrorBoundary
       FallbackComponent={FallbackUI}
       onError={logError as any}
-      onReset={(details) => {
+      onReset={() => {
         // Reset the state of your app so the error doesn't happen again
       }}
     >
