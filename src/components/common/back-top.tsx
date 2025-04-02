@@ -26,7 +26,6 @@ const BackTop: React.FC = () => {
       window.addEventListener("scroll", handleScroll);
       // Cleanup listener on component unmount
       return () => {
-        console.log("clean");
         window.removeEventListener("scroll", handleScroll);
       };
     }

@@ -9,7 +9,7 @@ const Home1Layout: React.FC = ({ children }: React.PropsWithChildren) => {
       <Header />
 
       <main
-        className="relative flex-grow"
+        className="relative flex-grow min-h-svh"
         style={{
           WebkitOverflowScrolling: "touch",
         }}

@@ -1,6 +1,6 @@
-import MobileNav from "@/components/navigation/mobile-nav";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
+import MobileNav from "@/components/navigation/mobile-nav";
 import React from "react";
 
 const DefaultLayout = ({ children }: React.PropsWithChildren) => {
@@ -8,7 +8,7 @@ const DefaultLayout = ({ children }: React.PropsWithChildren) => {
     <div className="flex flex-col min-h-svh">
       <Header />
       <main
-        className="relative flex-grow"
+        className="relative flex-grow min-h-svh"
         style={{
           WebkitOverflowScrolling: "touch",
         }}

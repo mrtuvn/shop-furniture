@@ -11,7 +11,7 @@ interface MegaMenuProps {
 
 export function MegaMenu({ sections }: MegaMenuProps) {
   return (
-    <div className="menu-content absolute left-0 top-full z-50 mt-1 w-screen max-w-screen-lg rounded-md border bg-background p-4 shadow-lg">
+    <div className="menu-content absolute left-0 top-full z-50 mt-1 w-screen max-w-screen-lg rounded-md border p-4 shadow-lg">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {sections.map((section) => (
           <div key={section.title} className="space-y-4">

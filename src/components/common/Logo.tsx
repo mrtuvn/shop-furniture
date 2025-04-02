@@ -4,7 +4,7 @@ const Logo = () => {
   const logo = "/images/logo/logo_white.png";
   return (
     <Link to="/" className="flex items-center gap-2">
-      <img src={logo} className="text-white w-[100px]" alt="Logo" />
+      <img src={logo} className="text-white w-[120px]" width={120} alt="Logo" />
     </Link>
   );
 };
