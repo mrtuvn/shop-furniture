@@ -5,11 +5,11 @@ import MobileNav from "@/components/navigation/mobile-nav";
 import React from "react";
 const Home1Layout: React.FC = ({ children }: React.PropsWithChildren) => {
   return (
-    <div className="relative flex flex-col min-h-svh">
+    <div className="relative flex flex-col">
       <Header />
 
       <main
-        className="relative flex-grow min-h-svh"
+        className="relative isolation flex-grow min-h-svh"
         style={{
           WebkitOverflowScrolling: "touch",
         }}
