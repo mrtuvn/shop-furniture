@@ -6,30 +6,35 @@ type HeroSliderType = {
   image: string;
   title?: string;
   description?: string;
-  link?: string;
+  buttonLink?: string;
+  buttonText?: string;
 };
 
 const data: HeroSliderType[] = [
   {
     id: 1,
     image: "/images/slider/slider1.jpg",
-    title: "Hero 1",
-    description: "Hero 1 description",
-    link: "/hero-1",
+    title: "Outset",
+    description:
+      "Form is designed by Agota Store and is part of the Form series. It is an  armless modern chair with great back support.",
+    buttonLink: "/hero-1",
+    buttonText: "Explore",
   },
   {
     id: 2,
     image: "/images/slider/slider2.jpg",
-    title: "Hero 2",
-    description: "Hero 2 description",
-    link: "/hero-2",
+    title: "Styles",
+    description:
+      "Form is designed by Agota Store and is part of the Form series. It is an armless modern chair with great back support.",
+    buttonLink: "/hero-2",
   },
   {
     id: 3,
     image: "/images/slider/slider3.jpg",
-    title: "Hero 3",
-    description: "Hero 3 description",
-    link: "/hero-3",
+    title: "Office",
+    description:
+      "Form is designed by Agota Store and is part of the Form series. It is an  armless modern chair with great back support.",
+    buttonLink: "/hero-3",
   },
 ];
 
@@ -96,10 +101,10 @@ const HeroSlider = () => {
                     {item.description}
                   </p>
                   <a
-                    className="py-2 w-fit inline-block px-4 bg-white text-black animate-slowSlideShowText duration-1000  rounded-xs"
-                    href={item.link}
+                    className="py-2 w-fit inline-block px-4 bg-white uppercase text-black animate-slowSlideShowText duration-1000  rounded-xs"
+                    href={item?.buttonLink ?? "#"}
                   >
-                    GO HERE
+                    {item.buttonText ? item.buttonText : "EXPLORE"}
                   </a>
                 </div>
               </div>

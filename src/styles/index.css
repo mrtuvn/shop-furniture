@@ -54,7 +54,7 @@ body {
     text-align: left;
   }
 
-  .active-cursor,
+  /* .active-cursor,
   .active-cursor *,
   html body a,
   html body a *,
@@ -122,7 +122,7 @@ body {
   ::-webkit-scrollbar-thumb {
     background-color: #000000;
     border-radius: 0.5rem;
-  }
+  } */
 
   body {
     margin: 0;
