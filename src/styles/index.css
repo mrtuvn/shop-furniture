@@ -132,13 +132,38 @@ body {
 }
 
 @keyframes slowSlideShowText {
-  --animate-slowSlideShowText: ease-in-out infinite;
   0% {
-    transform: translateY(-200px);
+    opacity: 0;
+    transform: translateY(-300px);
   }
+
   100% {
+    opacity: 1;
     transform: translateY(0);
   }
+}
+
+//animation for slider 
+
+.slider-button,
+.slider-description,
+.slider-title {
+  opacity: 0;
+}
+
+.slick-active .slider-title {
+  animation-name: slowSlideShowText;
+  @apply opacity-100 duration-2000 ease-in-out;
+}
+
+.slick-active .slider-description {
+  animation-name: slowSlideShowText;
+  @apply opacity-100 duration-1500 ease-in-out;
+}
+
+.slick-active .slider-button {
+  animation-name: slowSlideShowText;
+  @apply opacity-100 duration-1000 ease-in-out;
 }
 
 @keyframes grow {

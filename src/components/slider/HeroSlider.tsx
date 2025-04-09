@@ -44,7 +44,7 @@ const HeroSlider = () => {
   const settings = {
     dots: true,
     arrows: false /* disable next prev button */,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 1, // Show 3 slides at a time
     slidesToScroll: 1,
@@ -91,17 +91,17 @@ const HeroSlider = () => {
         {data.map((item: any) => (
           <div className="slider-item relative" key={item.id}>
             <img src={item.image} alt={item.title} />
-            <div className="slider-item-content text-left absolute top-0 left-0 w-[50%] h-full md:gap-10">
-              <div className="flex flex-col gap-5 slider-item-content-inner items-center justify-center h-full  transform-none text-white  w-[80%]">
+            <div className="slider-item-content text-left absolute inset-0 w-[100%] container mx-auto bg-[blue-200] h-full md:gap-10">
+              <div className="flex flex-col gap-5 slider-item-content-inner max-w-[56ch] justify-center items-start h-full transform-none text-white w-[80%]">
                 <div className="text-left flex flex-col gap-6">
-                  <h3 className="slider-title text-3xl text-white animate-slowSlideShowText duration-2000 text-4xl font-bold">
+                  <h3 className="slider-title text-3xl text-white text-4xl lg:text-[10rem]">
                     {item.title}
                   </h3>
-                  <p className="slider-description text-2xl animate-slowSlideShowText duration-1500 text-white text-lg">
+                  <p className="slider-description text-2xl text-white text-lg">
                     {item.description}
                   </p>
                   <a
-                    className="py-2 w-fit inline-block px-4 bg-white uppercase text-black animate-slowSlideShowText duration-1000  rounded-xs"
+                    className="slider-button md:mt-8 py-2 w-fit inline-block px-4 bg-white uppercase text-black rounded-xs"
                     href={item?.buttonLink ?? "#"}
                   >
                     {item.buttonText ? item.buttonText : "EXPLORE"}
