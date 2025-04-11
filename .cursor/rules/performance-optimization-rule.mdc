@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 ---
 description: General rule for performance optimization that includes lazy loading, image optimization, and Web Vitals.

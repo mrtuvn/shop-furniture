@@ -1,6 +1,7 @@
+import useDebounce from "@/hooks/use-debounce";
 import { cn } from "@/utils/cn";
 import { Search, ShoppingBag } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AccountLinks from "../common/account-links";
 import Logo from "../common/Logo";
 import Nav from "../navigation/nav";
@@ -11,50 +12,57 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const handleStickyHeaderDesktop = () => {
+  // Debounce the scroll handler for better performance
+  const handleScroll = useCallback(() => {
     const scrollPosition = window.scrollY;
+    setLastScrollY(scrollPosition);
+  }, []);
 
+  // Apply a debounced version of the useEffect
+  const debouncedScrollY = useDebounce(lastScrollY, 100);
+
+  // Update sticky state based on debounced scroll position
+  useEffect(() => {
     // Check if should be sticky
-    if (scrollPosition > 80) {
+    if (debouncedScrollY > 80) {
       setIsSticky(true);
     } else {
       setIsSticky(false);
     }
 
     // Handle visibility for slide animation
-    if (scrollPosition > lastScrollY && scrollPosition > 150) {
+    if (debouncedScrollY > lastScrollY && debouncedScrollY > 150) {
       // Scrolling down and past threshold
       setIsVisible(false);
     } else {
       // Scrolling up or at top
       setIsVisible(true);
     }
+  }, [debouncedScrollY, lastScrollY]);
 
-    setLastScrollY(scrollPosition);
-  };
-
+  // Add scroll event listener
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleStickyHeaderDesktop);
+      window.addEventListener("scroll", handleScroll, { passive: true });
 
       return () => {
-        window.removeEventListener("scroll", handleStickyHeaderDesktop);
+        window.removeEventListener("scroll", handleScroll);
       };
     }
-  }, [lastScrollY]);
+  }, [handleScroll]);
 
   return (
     <header
       className={cn(
-        "bg-none text-black transition-all duration-300 ease-in-out",
-        isSticky &&
-          "fixed w-full z-index-[var(--header-z-index)] bg-black text-white",
+        "bg-none text-black transition-all duration-300 ease-in-out w-full",
+        // Use a high z-index value to ensure header is above other elements
+        "z-[var(--z-index-overlay)]",
+        isSticky && "fixed top-0 left-0 bg-black text-white shadow-md",
         isSticky && isVisible
           ? "translate-y-0"
           : isSticky
             ? "-translate-y-full"
             : "",
-        isSticky && "shadow-md",
       )}
     >
       <div className="mx-auto flex flex-col">

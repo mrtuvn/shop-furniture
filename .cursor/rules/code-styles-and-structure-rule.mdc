@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 ---
 description: Enforces consistent code style and structure across the project, including concise code, functional programming, and descriptive variable names.

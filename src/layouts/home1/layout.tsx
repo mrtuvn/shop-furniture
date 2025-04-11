@@ -5,7 +5,7 @@ import MobileNav from "@/components/navigation/mobile-nav";
 import React from "react";
 const Home1Layout: React.FC = ({ children }: React.PropsWithChildren) => {
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col overflow-x-hidden  min-h-svh ">
       <Header />
 
       <main

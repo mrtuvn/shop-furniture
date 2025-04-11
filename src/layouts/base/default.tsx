@@ -5,10 +5,10 @@ import React from "react";
 
 const DefaultLayout = ({ children }: React.PropsWithChildren) => {
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col min-h-screen overflow-x-hidden">
       <Header />
       <main
-        className="relative isolation flex-grow min-h-svh"
+        className="relative isolation flex-grow"
         style={{
           WebkitOverflowScrolling: "touch",
         }}
