@@ -1,7 +1,10 @@
 import useDebounce from "@/hooks/use-debounce";
+import { toggleCart } from "@/redux/cart.slice";
+import { useAppDispatch, useAppSelector } from "@/store";
 import { cn } from "@/utils/cn";
 import { Search, ShoppingBag } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import CartDrawer from "../cart/cart-drawer";
 import AccountLinks from "../common/account-links";
 import Logo from "../common/Logo";
 import MobileNav from "../navigation/mobile-nav";
@@ -77,6 +80,14 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Cart functionality (Redux)
+  const dispatch = useAppDispatch();
+  const { items } = useAppSelector((state) => state.cart);
+
+  const openCart = () => {
+    dispatch(toggleCart());
+  };
+
   return (
     <>
       <header
@@ -106,12 +117,16 @@ const Header = () => {
               <div className="flex items-center justify-center gap-3">
                 <AccountLinks />
                 <Search />
-                <span className="relative md:block">
+                <button
+                  onClick={openCart}
+                  className="relative md:block"
+                  aria-label="Open cart"
+                >
                   <ShoppingBag />
-                  <span className="cart-count absolute top-[-5px] right-[-10px] ">
-                    0
+                  <span className="cart-count absolute top-[-5px] right-[-10px] bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                    {items.length}
                   </span>
-                </span>
+                </button>
               </div>
             </div>
           </div>
@@ -123,6 +138,9 @@ const Header = () => {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />
+
+      {/* Cart Drawer */}
+      <CartDrawer />
     </>
   );
 };
