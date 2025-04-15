@@ -1,7 +1,6 @@
 import BackTop from "@/components/common/back-top";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
-import MobileNav from "@/components/navigation/mobile-nav";
 import React from "react";
 const Home1Layout: React.FC = ({ children }: React.PropsWithChildren) => {
   return (
@@ -16,7 +15,7 @@ const Home1Layout: React.FC = ({ children }: React.PropsWithChildren) => {
       >
         {children}
       </main>
-      <MobileNav />
+      {/* <MobileNav /> */}
       <Footer />
       <BackTop />
     </div>
