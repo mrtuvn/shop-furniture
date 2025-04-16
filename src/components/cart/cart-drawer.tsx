@@ -142,7 +142,7 @@ const CartDrawer = () => {
           </div>
 
           <button
-            className="w-full py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition-colors"
+            className="w-full py-3 bg-black text-white text-center font-medium rounded-md hover:bg-gray-800 transition-colors"
             disabled={cartItems.length === 0}
           >
             Checkout
